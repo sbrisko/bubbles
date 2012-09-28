@@ -5,9 +5,9 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  CANVAS_WIDTH = 850;
+  CANVAS_WIDTH = 1000;
 
-  CANVAS_HEIGHT = 600;
+  CANVAS_HEIGHT = 150;
 
   ENEMIES_PROPABILITY = 0.5;
 
@@ -15,13 +15,13 @@
 
   DEFAULT_USER_SPEED = 0.1;
 
-  MAX_NUMBER_ENEMIES = 1000;
+  MAX_NUMBER_ENEMIES = 20;
 
-  DEFAULT_LINE_WIDTH = 2;
+  DEFAULT_LINE_WIDTH = 1;
 
-  DEFAULT_FILL_STYLE = 'black';
+  DEFAULT_FILL_STYLE = '#22781d';
 
-  DEFAULT_STROKE_STYLE = 'black';
+  DEFAULT_STROKE_STYLE = '#22781d';
 
   DEFAULT_POSITIVE_CIRCLE_JOIN_RATE = 0.5;
 
@@ -311,7 +311,7 @@
       this.gunpoint = __bind(this.gunpoint, this);
 
       this.shoot = __bind(this.shoot, this);
-      Player.__super__.constructor.call(this, x, y, radius, 0, 0, new Rgba(255, 0, 0, 0.9), 'black');
+      Player.__super__.constructor.call(this, x, y, radius, 0, 0, new Rgba(255, 255, 255, 0.5), '#22781d');
       this.last_bullet_shot = 0;
       this.age = 0;
     }
@@ -398,7 +398,7 @@
       }
       this.draw = __bind(this.draw, this);
 
-      Bullet.__super__.constructor.call(this, x, y, radius, x_velocity, y_velocity, 'yellow', 'black');
+      Bullet.__super__.constructor.call(this, x, y, radius, x_velocity, y_velocity, new Rgba(255,255,255,1), 'none');
     }
 
     Bullet.prototype.draw = function() {
@@ -450,19 +450,19 @@
         y_velocity = (DEFAULT_SPEED * -1) * Math.random() * (1 + DEFAULT_SPEED);
       }
       this.age = 0;
-      Enemy.__super__.constructor.call(this, x, y, radius, x_velocity, y_velocity, new Rgba(Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), 0.7), 'rgb(0,0,255)');
+      Enemy.__super__.constructor.call(this, x, y, radius, x_velocity, y_velocity, new Rgba(255, 255, 255, 0.35), '#22781d');
     }
 
     Enemy.prototype.update = function() {
       Enemy.__super__.update.call(this);
       if (this.radius > player1.radius) {
-        this.stroke_style = 'black';
+        this.stroke_style = new Rgba(255,255,255,0.65);//'black';
       }
       if (this.radius >= MAX_ENEMY_RADIUS) {
-        this.stroke_style = 'darkred';
+        this.stroke_style = new Rgba(255,255,255,0.85);//'darkred';
       }
       if (this.radius < player1.radius) {
-        return this.stroke_style = 'blue';
+        return this.stroke_style = new Rgba(255,255,255,0.25);//'blue';
       }
     };
 
