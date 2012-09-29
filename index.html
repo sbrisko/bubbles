@@ -10,11 +10,23 @@ canvas {
     /*background: -webkit-gradient(linear, 0 top, 0 bottom, from(#2c9930), to(#1a6f13));*/
     
   }
+.middle {
+  margin: auto;
+}
+h3 {
+      font-family: droid-sans, serif;
+      font-style: normal;
+      font-weight: 400;
+    }  
+p {
+  font-family: droid-sans, serif;
+}
 </style>
 </head>
 <body>
 <center><div id="gamearea">
 </div></center>
+<script src="http://use.edgefonts.net/droid-sans.js"></script>
 <script src="scripts/jquery.min.js"></script>
 <script src="scripts/jquery.hotkeys.js"></script>
 <script>    window.requestAnimFrame = (function(){
@@ -28,5 +40,11 @@ canvas {
               };
     })();</script>
 <script src="./bubbles.js"></script>
+<div class="middle">
+  <h3>Directions</h3>
+  <p>
+    Use the arrow keys to move your bubble and capture smaller bubbles. Use the spacebar to fire bullets and destroy bubbles larger than you.
+  </p>
+</div>
 </body>
 </html>
