@@ -32,13 +32,13 @@ class Enemy extends CircleMovingInGameObject
     @age = 0
     #new Rgba(255,0,0,0.9)
     #super(x, y, radius, x_velocity, y_velocity, 'rgba('+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+',0.7)', 'rgb(0,0,255)')
-    super(x, y, radius, x_velocity, y_velocity, new Rgba(Math.floor(Math.random()*255),Math.floor(Math.random()*255),Math.floor(Math.random()*255),0.7), 'rgb(0,0,255)')
+    super(x, y, radius, x_velocity, y_velocity, 'rgba(255, 255, 255, 0.35)', '#22781d')
 
   update: =>
     super()
-    @stroke_style = 'black' if @radius > player1.radius
-    @stroke_style = 'darkred' if @radius >=  MAX_ENEMY_RADIUS
-    @stroke_style = 'blue' if @radius < player1.radius
+    @stroke_style = 'rgba(255,255,255,0.65)' if @radius > player1.radius
+    @stroke_style = 'rgba(255,255,255,0.85)' if @radius >=  MAX_ENEMY_RADIUS
+    @stroke_style = 'rgba(255,255,255,0.25)' if @radius < player1.radius
 
 
 

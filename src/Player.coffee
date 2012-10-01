@@ -4,7 +4,8 @@ class Player extends CircleMovingInGameObject
 
 
     #super(x, y, radius, 0, 0, 'rgba(255,0,0,0.9)', 'black')
-    super(x, y, radius, 0, 0, new Rgba(255,0,0,0.9), 'black')
+    super(x, y, radius, 0, 0, 'rgba(255, 255, 255, 0.5)', '#22781d')
+
     @last_bullet_shot = 0
     @age = 0
   shoot: =>

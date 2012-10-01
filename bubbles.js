@@ -15,13 +15,13 @@
 
   DEFAULT_USER_SPEED = 0.1;
 
-  MAX_NUMBER_ENEMIES = 20;
+  MAX_NUMBER_ENEMIES = 200;
 
-  DEFAULT_LINE_WIDTH = 1;
+  DEFAULT_LINE_WIDTH = 2;
 
-  DEFAULT_FILL_STYLE = '#22781d';
+  DEFAULT_FILL_STYLE = 'black';
 
-  DEFAULT_STROKE_STYLE = '#22781d';
+  DEFAULT_STROKE_STYLE = 'black';
 
   DEFAULT_POSITIVE_CIRCLE_JOIN_RATE = 0.5;
 
@@ -311,7 +311,7 @@
       this.gunpoint = __bind(this.gunpoint, this);
 
       this.shoot = __bind(this.shoot, this);
-      Player.__super__.constructor.call(this, x, y, radius, 0, 0, new Rgba(255, 255, 255, 0.5), '#22781d');
+      Player.__super__.constructor.call(this, x, y, radius, 0, 0, 'rgba(255, 255, 255, 0.5)', '#22781d');
       this.last_bullet_shot = 0;
       this.age = 0;
     }
@@ -398,7 +398,7 @@
       }
       this.draw = __bind(this.draw, this);
 
-      Bullet.__super__.constructor.call(this, x, y, radius, x_velocity, y_velocity, new Rgba(255,255,255,1), 'none');
+      Bullet.__super__.constructor.call(this, x, y, radius, x_velocity, y_velocity, new Rgba(255, 255, 255, 1), 'none');
     }
 
     Bullet.prototype.draw = function() {
@@ -450,19 +450,19 @@
         y_velocity = (DEFAULT_SPEED * -1) * Math.random() * (1 + DEFAULT_SPEED);
       }
       this.age = 0;
-      Enemy.__super__.constructor.call(this, x, y, radius, x_velocity, y_velocity, new Rgba(255, 255, 255, 0.35), '#22781d');
+      Enemy.__super__.constructor.call(this, x, y, radius, x_velocity, y_velocity, 'rgba(255, 255, 255, 0.35)', '#22781d');
     }
 
     Enemy.prototype.update = function() {
       Enemy.__super__.update.call(this);
       if (this.radius > player1.radius) {
-        this.stroke_style = new Rgba(255,255,255,0.65);//'black';
+        this.stroke_style = 'rgba(255,255,255,0.65)';
       }
       if (this.radius >= MAX_ENEMY_RADIUS) {
-        this.stroke_style = new Rgba(255,255,255,0.85);//'darkred';
+        this.stroke_style = 'rgba(255,255,255,0.85)';
       }
       if (this.radius < player1.radius) {
-        return this.stroke_style = new Rgba(255,255,255,0.25);//'blue';
+        return this.stroke_style = 'rgba(255,255,255,0.25)';
       }
     };
 
